@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="One Mill One Thousand Hills: a boutique hotel in a former windmill on a remote hilltop in Odemira, Alentejo, Portugal. Retreats, family stays and events among cork oak and eucalyptus.">
+<meta property="og:title" content="One Mill One Thousand Hills · Boutique Hotel, Alentejo">
+<meta property="og:description" content="A former windmill alone on its hilltop, surrounded by cork oak forest. Book direct by email.">
+<meta property="og:image" content="media/mill-aerial.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>One Mill One Thousand Hills · Boutique Hotel Alentejo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Hanken+Grotesk:wght@300;400;500;600&display=swap">
+<style>
+/* Layout: O11 flow on one page — minimal top bar (logo · menu · book), full-bleed hero, quiet bands. Single light look built on the logo's forest green, cork brown and white. */
+:root{
+  --green:#223B21;      /* logo green */
+  --green-2:#2F4E2D;
+  --cork:#8A6446;       /* cork brown */
+  --sand:#F4EFE8;       /* warm white band */
+  --white:#FFFFFF;
+  --ink:#1E2A1D;
+  --ink-soft:#5B6658;
+  --line:rgba(34,59,33,.16);
+  --display:"Tenor Sans","Optima","Candara",sans-serif;
+  --body:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --gut-l:max(16px,env(safe-area-inset-left,0px));
+  --gut-r:max(16px,env(safe-area-inset-right,0px));
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--white);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.7;font-weight:300}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--white)}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;margin:0;text-wrap:balance;letter-spacing:.04em}
+h1{font-size:clamp(40px,7vw,88px);text-transform:uppercase;letter-spacing:.08em}
+h2{font-size:clamp(30px,4.4vw,52px)}
+h3{font-size:clamp(21px,2.2vw,26px)}
+p{margin:0;max-width:62ch}
+.eyebrow{font-family:var(--display);font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--cork);display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
+.wrap{max-width:1200px;margin:0 auto;padding-left:var(--gut-l);padding-right:var(--gut-r)}
+:focus-visible{outline:2px solid var(--cork);outline-offset:3px}
+
+/* minimal header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--white);border-bottom:1px solid var(--line)}
+.top .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding-block:12px}
+.top .logo{justify-self:center;display:block;line-height:0}
+.top .logo img{height:52px;width:auto}
+.menu-btn{justify-self:start;background:none;border:0;color:var(--green);font-family:var(--display);font-size:14px;letter-spacing:.24em;text-transform:uppercase;display:flex;align-items:center;gap:12px;cursor:pointer;padding:8px 0}
+.menu-btn i{display:grid;gap:5px}
+.menu-btn i::before,.menu-btn i::after{content:"";display:block;width:24px;height:1.5px;background:currentColor}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--green);color:var(--white);text-decoration:none;font-family:var(--display);font-size:13px;letter-spacing:.22em;text-transform:uppercase;padding:14px 24px;border:0;cursor:pointer}
+.btn:hover{background:var(--green-2)}
+.btn.line{background:transparent;color:var(--green);border:1px solid var(--green)}
+.btn.cork{background:var(--cork)}
+.top .btn{justify-self:end;padding:11px 18px}
+@media (max-width:640px){.top .logo img{height:40px}.menu-btn span{display:none}.top .btn{padding:10px 12px;letter-spacing:.14em}}
+
+/* menu overlay */
+.overlay{position:fixed;inset:0;z-index:50;background:var(--green);color:var(--white);display:flex;flex-direction:column;
+  padding-top:calc(env(safe-area-inset-top,0px) + 20px);padding-bottom:calc(env(safe-area-inset-bottom,0px) + 28px);padding-left:var(--gut-l);padding-right:var(--gut-r);overflow-y:auto}
+.overlay .close{align-self:flex-start;background:none;border:0;color:var(--white);font-family:var(--display);font-size:14px;letter-spacing:.24em;text-transform:uppercase;cursor:pointer;padding:8px 0}
+.overlay nav{margin:auto 0;display:grid;gap:6px;max-width:1200px;width:100%;margin-inline:auto}
+.overlay nav a{font-family:var(--display);font-size:clamp(28px,5vw,52px);text-decoration:none;letter-spacing:.06em;padding-block:4px}
+.overlay nav a:hover{color:#D9C2A9}
+.overlay .foot{max-width:1200px;width:100%;margin-inline:auto;font-size:14px;opacity:.75}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:var(--green);color:var(--white)}
+.hero{min-height:clamp(480px,82vh,860px);display:flex}
+.hero video.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,59,33,.15) 0%,rgba(34,59,33,.2) 45%,rgba(20,36,20,.78) 100%)}
+.hero .copy{position:relative;z-index:1;flex:1;display:flex;align-items:flex-end;padding-bottom:clamp(32px,6vw,80px)}
+.hero .copy .wrap{width:100%;display:grid;gap:20px}
+.hero .eyebrow{color:#E6D3BE}
+.hero p{font-size:clamp(16px,1.6vw,19px);color:#EEF0EA}
+.hero .tag{position:absolute;right:max(16px,env(safe-area-inset-right,0px));top:16px;background:rgba(255,255,255,.14);color:#fff;font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:6px 10px}
+
+section.s{padding-block:clamp(64px,9vw,120px)}
+section.sand{background:var(--sand)}
+section.green{background:var(--green);color:var(--white)}
+section.green .eyebrow{color:#D9C2A9}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,88px);align-items:center}
+.split > *{min-width:0}
+.stack{display:grid;gap:22px}
+.head{display:grid;gap:18px;margin-bottom:clamp(36px,5vw,56px)}
+@media (max-width:820px){.split{grid-template-columns:1fr}}
+
+/* photo slots */
+.ph{position:relative;aspect-ratio:4/5;max-width:100%;overflow:hidden;background:
+  radial-gradient(130% 70% at 25% 115%, #3E5A34 0 40%, transparent 41%),
+  radial-gradient(130% 80% at 90% 118%, #2C4628 0 44%, transparent 45%),
+  linear-gradient(180deg,#D8DDD2 0%, #EADFD0 55%, #B89676 100%)}
+.ph.wide{aspect-ratio:16/10}
+.ph.sq{aspect-ratio:1/1}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph .tag{position:absolute;left:12px;bottom:12px;background:rgba(34,59,33,.82);color:#fff;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px}
+
+/* direct booking perks */
+.perks{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,3vw,36px)}
+.perk{border-top:1px solid var(--cork);padding-top:22px;display:grid;gap:10px}
+.perk .k{font-family:var(--display);font-size:clamp(24px,2.6vw,32px);color:var(--green)}
+@media (max-width:640px){.perks{grid-template-columns:1fr}}
+
+/* pillars */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,48px)}
+.pillar{display:grid;gap:14px;align-content:start;border-top:1px solid rgba(255,255,255,.35);padding-top:22px}
+.pillar p{color:#E4E8E0}
+@media (max-width:820px){.pillars{grid-template-columns:1fr}}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(22px,3vw,32px)}
+.card{display:grid;gap:12px;align-content:start}
+.card .meta{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--cork);font-weight:500}
+.card h3{color:var(--green)}
+@media (max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.cards{grid-template-columns:1fr}}
+
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.5vw,28px);margin-bottom:clamp(40px,5vw,64px)}
+.duo figure{margin:0;display:grid;gap:10px;min-width:0}
+.duo figcaption{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--cork)}
+@media (max-width:640px){.duo{grid-template-columns:1fr}}
+/* distances */
+.dist{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.dist td{padding:15px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.dist td:last-child{text-align:right;white-space:nowrap;color:var(--green);font-weight:500;padding-left:16px}
+.dist small{display:block;color:var(--ink-soft);font-size:14px}
+.note{font-size:13px;color:var(--ink-soft)}
+
+/* guests */
+.score{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}
+.score b{font-family:var(--display);font-weight:400;font-size:clamp(64px,9vw,110px);line-height:1;color:var(--green)}
+.score span{color:var(--cork);letter-spacing:.24em;font-size:20px}
+.themes{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.theme{background:var(--white);padding:28px;display:grid;gap:10px;align-content:start}
+.theme h3{color:var(--green)}
+@media (max-width:900px){.themes{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.themes{grid-template-columns:1fr}}
+
+/* email booking */
+.mailbox{display:grid;gap:20px;border:1px solid rgba(255,255,255,.28);padding:clamp(24px,4vw,40px);min-width:0}
+.mailbox p{color:#E4E8E0}
+.addr{display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+.addr a{text-decoration:none;font-family:var(--display);font-size:clamp(22px,3vw,32px);letter-spacing:.04em;user-select:all;overflow-wrap:anywhere;min-width:0}
+.hint{font-size:14px}
+/* footer */
+footer{background:var(--white);border-top:1px solid var(--line)}
+footer .wrap{padding-block:56px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;align-items:start}
+footer .wrap > *{min-width:0}
+footer img{height:64px;width:auto}
+footer .col{display:grid;gap:8px;font-size:15px}
+footer .col a{text-decoration:none}
+footer .eyebrow::before{display:none}
+.fine{border-top:1px solid var(--line);font-size:12px;color:var(--ink-soft);padding-block:18px}
+@media (max-width:760px){footer .wrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <button class="menu-btn" id="open" aria-controls="overlay" aria-expanded="false"><i></i><span>Menu</span></button>
+    <a class="logo" href="#top" aria-label="One Mill One Thousand Hills, home"><img src="logo.png" alt="One Mill One Thousand Hills Boutique Hotel"></a>
+    <a class="btn" href="#book">Book</a>
+  </div>
+</header>
+
+<div class="overlay" id="overlay" hidden>
+  <button class="close" id="close">✕ Close</button>
+  <nav>
+    <a href="#top">Home</a>
+    <a href="#house">The Mill</a>
+    <a href="#retreats">Retreats &amp; Events</a>
+    <a href="#area">The Area</a>
+    <a href="#guests">Guests</a>
+    <a href="#book">Book direct</a>
+  </nav>
+  <div class="foot">One Mill One Thousand Hills · Boutique Hotel · Odemira, Alentejo, Portugal</div>
+</div>
+
+<main id="top">
+  <div class="hero">
+    <video class="bg" autoplay muted loop playsinline preload="auto" poster="media/hero-poster.jpg" aria-hidden="true"><source src="media/hero.mp4" type="video/mp4"></video>
+    <div class="shade"></div>
+    <div class="copy"><div class="wrap">
+      <span class="eyebrow">Boutique Hotel · Alentejo, Portugal</span>
+      <h1>One mill.<br>A thousand hills.</h1>
+      <p>A former windmill alone on its hilltop, with a 360° view over cork oak forest and the scent of eucalyptus in the air. No neighbours, no traffic, no rush. The Atlantic is an easy drive away.</p>
+      <div><a class="btn cork" href="#book">Check availability</a></div>
+    </div></div>
+  </div>
+
+  <!-- welcome -->
+  <section class="s">
+    <div class="wrap split">
+      <div class="stack">
+        <span class="eyebrow">Welcome</span>
+        <h2>The quiet starts at the gate</h2>
+        <p>One Mill sits on its own summit near Carrascal, deep in the hills of Odemira, the largest municipality in Portugal. The road narrows and the cork trees close in. What is left is birdsong, wide sky and a spacious, airy house with high ceilings, built for long tables and slow mornings.</p>
+        <p>Come to switch off. Come with your team to think clearly. Come with the people you love and stay up talking under more stars than you thought existed.</p>
+      </div>
+      <div class="ph"><img src="media/mill-aerial.jpg" alt="The white mill house with its round tower and pool, alone on a hilltop above cork oak and eucalyptus" loading="lazy"></div>
+    </div>
+  </section>
+
+  <!-- book direct -->
+  <section class="s sand">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Book directly</span>
+        <h2>&amp; enjoy advantages</h2>
+      </div>
+      <div class="perks">
+        <div class="perk"><span class="k">Best rate guarantee</span><p>Our direct price is always the lowest. Find the same dates cheaper online and we match it.</p></div>
+        <div class="perk"><span class="k">Late checkout</span><p>One more swim, one last lunch. Late checkout whenever the next guests allow it.</p></div>
+      </div>
+      <div style="margin-top:40px"><a class="btn" href="#book">Book direct</a></div>
+    </div>
+  </section>
+
+  <!-- the house -->
+  <section class="s" id="house">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">The Mill</span>
+        <h2>A windmill hill, all to yourself</h2>
+        <p>Built around a former windmill on the highest point of the land, the house looks out in every direction over untouched cork oak forest. Inside: high ceilings, generous light and a design guests keep talking about. Outside: a swimming pool, stone terraces, a garden and room to spread out.</p>
+      </div>
+      <div class="cards">
+        <div class="card"><div class="ph"><img src="media/sunrise.jpg" alt="Sunrise over mist-filled valleys seen from the garden" loading="lazy"></div><span class="meta">Rest</span><h3>Bedrooms &amp; mornings</h3><p>Quiet rooms, deep sleep and mornings like this one: the sun rising over valleys full of mist.</p></div>
+        <div class="card"><div class="ph"><img src="media/dining.jpg" alt="Candlelit dining table in the open living room with tall glass doors" loading="lazy"></div><span class="meta">Gather</span><h3>Living &amp; dining</h3><p>High ceilings, a long table for shared meals and space for evenings that run late.</p></div>
+        <div class="card"><div class="ph"><img src="media/mill-top.jpg" alt="Aerial view of the tiled roofs, glass-domed mill tower, terraces and pool" loading="lazy"></div><span class="meta">Outside</span><h3>Pool &amp; terraces</h3><p>A pool beside the old mill tower, stone terraces for sunrise coffee and stargazing with the whole panorama around you.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- more than a room -->
+  <section class="s sand">
+    <div class="wrap split">
+      <div class="ph wide"><img src="media/hills.jpg" alt="A dirt track winding through green hills and cork oaks towards distant ridges" loading="lazy"></div>
+      <div class="stack">
+        <span class="eyebrow">More than a room</span>
+        <h2>Detox for body and mind</h2>
+        <p>Days follow the sun. Read, walk the tracks through the forest, nap through the afternoon heat and watch the Milky Way at night. On request we arrange yoga, guided walks or a private chef.</p>
+        <div><a class="btn line" href="#area">Explore the area</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- pillars -->
+  <section class="s green">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">The One Mill</span>
+        <h2>Three reasons to come up the hill</h2>
+      </div>
+      <div class="pillars">
+        <div class="pillar"><h3>Switch off</h3><p>Remote by design. No through-traffic, no city light, no schedule. A real detox for the head and the screen.</p></div>
+        <div class="pillar"><h3>Gather</h3><p>Executive retreats, family reunions, workshops and small celebrations, with the whole hill to yourselves.</p></div>
+        <div class="pillar"><h3>Explore</h3><p>Cork forest at the door, river beaches inland and the wild Vicentine coast within reach.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- retreats -->
+  <section class="s" id="retreats">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Retreats &amp; Events</span>
+        <h2>Take the whole hill</h2>
+        <p>Privacy is the biggest luxury we offer. Your group has the house and grounds to itself, far from distractions, with space to work, celebrate and recover.</p>
+      </div>
+      <div class="cards">
+        <div class="card"><div class="ph wide"><img src="media/terrace-dusk.jpg" alt="Whitewashed wing of the house and covered terrace lit warmly at dusk beside the stone mill tower" loading="lazy"></div><span class="meta">Leadership teams</span><h3>Executive retreats</h3><p>Strategy on the terrace in the morning, a walk in the cork forest at noon, decisions over dinner.</p></div>
+        <div class="card"><div class="ph wide"><img src="media/beach.jpg" alt="Three people walking barefoot towards Atlantic waves at sunset" loading="lazy"></div><span class="meta">Every generation</span><h3>Family retreats</h3><p>Kids run free, grandparents find the shade, everyone meets at the long table.</p></div>
+        <div class="card"><div class="ph wide"><img src="media/hikers.jpg" alt="A walking group on a red dirt track between cork oaks and eucalyptus" loading="lazy"></div><span class="meta">Create &amp; walk</span><h3>Workshops &amp; events</h3><p>The mill has hosted workshops, artist residencies and Rota Vicentina walking groups. Guests describe a calm, creative energy.</p></div>
+      </div>
+      <div style="margin-top:44px"><a class="btn" href="#book">Plan your retreat</a></div>
+    </div>
+  </section>
+
+  <!-- area -->
+  <section class="s sand" id="area">
+    <div class="wrap split" style="align-items:start">
+      <div class="stack">
+        <span class="eyebrow">The Area</span>
+        <h2>Montado country</h2>
+        <p>The mill lies in the interior of Odemira, a municipality of about 1,700 km² that runs from rolling cork hills to roughly 55 km of Atlantic coast. Its entire coastline belongs to the Southwest Alentejo and Vicentine Coast Natural Park.</p>
+        <p>Around the house is the <em>montado</em>: open woodland of cork and holm oak, grazing sheep and quiet farm tracks. Alentejo holds most of Portugal's cork forest. The bark is stripped by hand about every nine years, and each trunk is painted with the number of its harvest year.</p>
+      </div>
+      <div class="stack">
+        <span class="eyebrow">Distance to the sea &amp; more</span>
+        <div style="overflow-x:auto">
+          <table class="dist">
+            <tr><td>Odemira town<small>Market, cafés, the river Mira</small></td><td>~15 min</td></tr>
+            <tr><td>Santa Clara reservoir<small>River beach, lakeside walks</small></td><td>~30 min</td></tr>
+            <tr><td>Zambujeira do Mar<small>Cliff-top village and beaches</small></td><td>~40 min</td></tr>
+            <tr><td>Vila Nova de Milfontes<small>River mouth, family beaches</small></td><td>~40 min</td></tr>
+            <tr><td>Odeceixe<small>Where the Seixe river meets the sea</small></td><td>~45 min</td></tr>
+            <tr><td>Faro airport</td><td>~1 h 30</td></tr>
+            <tr><td>Lisbon airport</td><td>~2 h 15</td></tr>
+          </table>
+        </div>
+        <p class="note">Driving times are approximate.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="s">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Things to do</span>
+        <h2>Days out from the hill</h2>
+      </div>
+      <div class="duo">
+        <figure><div class="ph wide"><img src="media/hikers.jpg" alt="Walkers on a red dirt track between cork oaks and tall eucalyptus" loading="lazy"></div><figcaption>Walking between cork oak and eucalyptus</figcaption></figure>
+        <figure><div class="ph wide"><img src="media/beach.jpg" alt="Three people walking barefoot towards Atlantic waves at sunset" loading="lazy"></div><figcaption>Sunset on the Atlantic coast</figcaption></figure>
+      </div>
+      <div class="cards">
+        <div class="card"><span class="meta">Walk</span><h3>Rota Vicentina</h3><p>Around 750 km of marked trails. The inland Historical Way crosses cork woodland between Odemira and São Teotónio; the Fishermen's Trail follows the cliffs.</p></div>
+        <div class="card"><span class="meta">Swim</span><h3>River pools &amp; lakes</h3><p>Pego das Pias, a rocky river pool near Odemira, or the river beach on the Santa Clara reservoir.</p></div>
+        <div class="card"><span class="meta">Coast</span><h3>Wild beaches</h3><p>Zambujeira do Mar, Carvalhal and Odeceixe for sand between cliffs. Cabo Sardão, the westernmost point of the Alentejo coast, for big sea views.</p></div>
+        <div class="card"><span class="meta">Surf</span><h3>Atlantic waves</h3><p>The Vicentine coast is one of Europe's best surf regions, with breaks and schools for every level.</p></div>
+        <div class="card"><span class="meta">Ride</span><h3>Gravel &amp; trail cycling</h3><p>Quiet back roads and dirt tracks through oak country, with Rota Vicentina cycling routes passing Odemira.</p></div>
+        <div class="card"><span class="meta">Taste</span><h3>Alentejo table</h3><p>Black pork, slow-roasted lamb, octopus on the coast, local honey and medronho, the strawberry-tree spirit of the hills.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- guests -->
+  <section class="s sand" id="guests">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Guests</span>
+        <div class="score"><b>5.0</b><span>★★★★★</span></div>
+        <p>Every one of our 18 Google reviews gives five stars. This is what guests mention most.</p>
+      </div>
+      <div class="themes">
+        <div class="theme"><h3>The view</h3><p>A full panorama from the hilltop over cork oak forest, with birdsong and eucalyptus in the air.</p></div>
+        <div class="theme"><h3>The calm</h3><p>Quiet, peaceful, made for unwinding. Several guests have already come back.</p></div>
+        <div class="theme"><h3>The house</h3><p>Spacious, airy and spotless, with high ceilings, a lovely garden and design that stands out.</p></div>
+        <div class="theme"><h3>The trails</h3><p>Plenty of hiking nearby, including walking weeks on the Rota Vicentina.</p></div>
+        <div class="theme"><h3>The energy</h3><p>A creative, positive atmosphere that suits workshops, retreats and artists.</p></div>
+        <div class="theme"><h3>The care</h3><p>Well run and well kept, so groups feel at home from the first hour.</p></div>
+      </div>
+      <div class="cards" style="margin-top:40px">
+        <div class="ph sq"><img src="media/sunrise.jpg" alt="Sunrise over mist-filled valleys seen from the garden" loading="lazy"></div>
+        <div class="ph sq"><img src="media/terrace-dusk.jpg" alt="The covered terrace lit warmly at dusk" loading="lazy"></div>
+        <div class="ph sq"><img src="media/mill-top.jpg" alt="The mill tower, roofs and pool seen from above" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- book -->
+  <section class="s green" id="book">
+    <div class="wrap split" style="align-items:start">
+      <div class="stack">
+        <span class="eyebrow">Book direct</span>
+        <h2>Your dates on the hill</h2>
+        <p>No booking engine, no middleman. Just an email to us, and we confirm everything personally.</p>
+      </div>
+      <div class="mailbox">
+        <span class="eyebrow">Reservations by email</span>
+        <p>We take every booking personally, by email only. Write to us with your dates, the number of guests and the kind of stay you have in mind. We reply with availability and your direct rate.</p>
+        <div class="addr"><a id="addr" href="mailto:matthias@wa-ip.com?subject=Booking%20request%20One%20Mill">matthias@wa-ip.com</a><button class="btn cork" id="copy" type="button">Copy address</button></div>
+        <p class="hint" id="hint">Book direct and get our best rate guarantee and late checkout, subject to availability.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="col"><img src="logo.png" alt="One Mill One Thousand Hills Boutique Hotel"></div>
+    <div class="col"><span class="eyebrow">Explore</span><a href="#house">The Mill</a><a href="#retreats">Retreats &amp; Events</a><a href="#area">The Area</a><a href="#guests">Guests</a></div>
+    <div class="col"><span class="eyebrow">Contact</span><a href="mailto:matthias@wa-ip.com">matthias@wa-ip.com</a><a href="tel:+351963912071">+351 963 912 071</a><a href="https://wa.me/351963912071" target="_blank" rel="noopener">WhatsApp</a><span>Carrascal, Odemira, Portugal</span></div>
+  </div>
+  <div class="wrap fine">© One Mill One Thousand Hills · Boutique Hotel · Alentejo, Portugal</div>
+</footer>
+
+<script>
+(function(){
+  var ov=document.getElementById("overlay"),op=document.getElementById("open"),cl=document.getElementById("close");
+  function setOpen(o){ov.hidden=!o;op.setAttribute("aria-expanded",o?"true":"false");document.body.style.overflow=o?"hidden":"";if(o)cl.focus();}
+  op.addEventListener("click",function(){setOpen(true)});
+  cl.addEventListener("click",function(){setOpen(false)});
+  ov.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){setOpen(false)})});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!ov.hidden)setOpen(false)});
+  var cp=document.getElementById("copy"),ad=document.getElementById("addr"),hn=document.getElementById("hint");
+  cp.addEventListener("click",function(){
+    var t=ad.textContent;
+    function sel(){var r=document.createRange();r.selectNodeContents(ad);var w=getSelection();w.removeAllRanges();w.addRange(r);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){cp.textContent="Copied";},function(){sel();cp.textContent="Selected";});}else{sel();cp.textContent="Selected";}
+  });
+})();
+</script>
+</body>
+</html>
